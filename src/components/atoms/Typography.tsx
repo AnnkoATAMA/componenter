@@ -17,11 +17,11 @@ const variantTagMap: Record<Variant, keyof JSX.IntrinsicElements> = {
 };
 
 export default function Typography({
-                                       variant = 'body',
-                                       children,
-                                       className = '',
-                                       style,
-                                   }: TypographyProps) {
+   variant = 'body',
+   children,
+   className = '',
+   style,
+}: TypographyProps) {
     const Tag = variantTagMap[variant];
 
     return (

@@ -11,14 +11,14 @@
     "articles": [
       {
         "id": "1",
-        "title": "React 19 Released",
-        "summary": "Hooksやストリーミングレンダリングが導入されました。",
+        "title": "title",
+        "summary": "summary",
         "date": "2025-06-14"
       },
       {
         "id": "2",
-        "title": "Hono + Cloudflare Workers",
-        "summary": "超軽量なサーバーレスフレームワーク。",
+        "title": "ここはタイトル",
+        "summary": "こここそサマリー",
         "date": "2025-06-12"
       }
     ]
