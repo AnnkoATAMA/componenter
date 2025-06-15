@@ -9,9 +9,6 @@ type Props = {
 export default function ComponentList({ modules }: Props) {
     return (
         <div>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '16px' }}>
-                Available Components
-            </h2>
             <ul className="component-list fade-in">
                 {Object.keys(modules)
                     .map((file) => file.replace('../components/', '').replace('.tsx', ''))

@@ -4,15 +4,15 @@
     border: 0;
 }
 :root {
-    --color-nightblue: #1E1E2F;
+    --color-nightblue: #252527;
     --color-cyan:      #00E5FF;
     --color-magenta:   #FF00D6;
     --color-surface:   #2B2B40;
     --color-surface-light: #3C3C55;
 
-    --color-atoms:     #00E5FF;
-    --color-molecules: #FF00D6;
-    --color-organisms: #FFCC00;
+    --color-atoms: #8fc5c8;
+    --color-molecules: #c68ebf;
+    --color-organisms: #b8af8b;
     --color-templates: #FFA07A;
 
     --bg-atoms:        #1A2C3C;
