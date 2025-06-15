@@ -1,0 +1,26 @@
+{
+  "articlepreview": {
+    "article": {
+      "id": "sample-id",
+      "title": "サンプルタイトル",
+      "summary": "これは記事の要約です。ここには内容のダイジェストが表示されます。",
+      "date": "2025-06-14"
+    }
+  },
+  "articlepreviewlist": {
+    "articles": [
+      {
+        "id": "1",
+        "title": "React 19 Released",
+        "summary": "Hooksやストリーミングレンダリングが導入されました。",
+        "date": "2025-06-14"
+      },
+      {
+        "id": "2",
+        "title": "Hono + Cloudflare Workers",
+        "summary": "超軽量なサーバーレスフレームワーク。",
+        "date": "2025-06-12"
+      }
+    ]
+  }
+}
