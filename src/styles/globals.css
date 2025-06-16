@@ -1,82 +1,116 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     border: 0;
+    box-sizing: border-box;
 }
-:root {
-    --color-nightblue: #252527;
-    --color-cyan:      #00E5FF;
-    --color-magenta:   #FF00D6;
-    --color-surface:   #2B2B40;
-    --color-surface-light: #3C3C55;
 
+/* Variables */
+:root {
+    /* Category Colors */
     --color-atoms: #8fc5c8;
     --color-molecules: #c68ebf;
     --color-organisms: #b8af8b;
-    --color-templates: #FFA07A;
+    --color-templates: #ffa07a;
 
-    --bg-atoms:        #1A2C3C;
-    --bg-molecules:    #2B1F33;
-    --bg-organisms:    #3C321A;
-    --bg-templates:    #402818;
+    --border-atoms: #00b8d4;
+    --border-molecules: #c2185b;
+    --border-organisms: #ffeb3b;
+    --border-templates: #ff7043;
 
-    --border-atoms:    #00B8D4;
-    --border-molecules:#C2185B;
-    --border-organisms:#FFEB3B;
-    --border-templates:#FF7043;
+    /* Liquid Glass Design */
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-hover: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(180, 180, 180, 0.35);
+    --glass-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    --glass-radius: 20px;
 
-    --font-mono: 'IBM Plex Mono', monospace;
-    --font-sans: 'Inter', sans-serif;
-    --radius: 12px;
-    --transition: all 0.2s ease-in-out;
+    /* Typography & System */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", sans-serif;
+    --transition: all 0.3s ease;
 }
 
+/* Base */
 body {
-    background-color: var(--color-nightblue);
-    color: white;
+    background: #f5f7fa;
+    color: #222;
     font-family: var(--font-sans);
     line-height: 1.6;
-    padding: 24px;
+    padding: 32px;
 }
 
-input, select, button {
+/* Elements */
+input,
+select,
+button {
     font-family: var(--font-sans);
-    border-radius: var(--radius);
+    border-radius: var(--glass-radius);
     border: none;
     outline: none;
     transition: var(--transition);
 }
+
+/* Glass Components */
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--glass-radius);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: var(--transition);
+}
+.glass-card:hover {
+    background: var(--glass-hover);
+}
+
+.glass-button {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: 500;
+    color: #222;
+    transition: var(--transition);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+}
+.glass-button:hover {
+    background: var(--glass-hover);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.03);
+}
+
+/* Control Panel */
 .control-panel {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    background: var(--color-surface);
     padding: 16px;
-    border-radius: var(--radius);
+    border-radius: var(--glass-radius);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(16px);
 }
 
 .control-group {
     display: flex;
     flex-direction: column;
 }
-
 .control-label {
     font-size: 0.875rem;
-    color: #ccc;
+    color: #555;
     margin-bottom: 6px;
 }
-
 .control-input {
-    padding: 8px 12px;
-    background-color: var(--color-surface-light);
-    color: white;
-    border-radius: var(--radius);
-    border: 1px solid transparent;
+    background-color: white;
+}
+.control-input:focus {
+    border-color: var(--color-atoms);
 }
 
-.control-input:focus {
-    border-color: var(--color-cyan);
-}
+/* Component List */
 .component-list {
     list-style: none;
     padding-left: 0;
@@ -85,33 +119,46 @@ input, select, button {
     gap: 16px;
     margin-top: 16px;
 }
-
 .component-list li a {
     display: block;
-    background: var(--color-surface);
     padding: 12px 16px;
-    border-radius: var(--radius);
+    border-radius: var(--glass-radius);
     text-decoration: none;
-    color: var(--color-cyan);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: #333;
+    box-shadow: var(--glass-shadow);
     transition: var(--transition);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.component-list li a:hover {
+    background: var(--glass-hover);
+    color: #000;
 }
 
-.component-list li a:hover {
-    background: var(--color-surface-light);
-    color: white;
+/* Title & Label */
+.glass-section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
 }
-@keyframes fadeInUp {
+.glass-label {
+    font-size: 0.875rem;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+/* Animation */
+@keyframes fadeGlass {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(8px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
-.fade-in {
-    animation: fadeInUp 0.3s ease forwards;
+.fade-glass {
+    animation: fadeGlass 0.4s ease both;
 }

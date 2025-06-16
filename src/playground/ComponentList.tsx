@@ -8,52 +8,51 @@ type Props = {
 
 export default function ComponentList({ modules }: Props) {
     return (
-        <div>
-            <ul className="component-list fade-in">
-                {Object.keys(modules)
-                    .map((file) => file.replace('../components/', '').replace('.tsx', ''))
-                    .sort()
-                    .map((route) => {
-                        const category = route.split('/')[0] as keyof typeof categoryColors;
-                        const style = categoryColors[category] ?? {
-                            color: 'white',
-                            bg: 'var(--color-surface)',
-                            border: 'transparent',
-                        };
-                        return (
-                            <li key={route}>
-                                <Link
-                                    to={route}
-                                    style={{
-                                        display: 'block',
-                                        backgroundColor: style.bg,
-                                        color: style.color,
-                                        border: `1px solid ${style.border}`,
-                                        borderRadius: 'var(--radius)',
-                                        padding: '12px 16px',
-                                        textDecoration: 'none',
-                                        boxShadow: '0 4px 6px rgba(0,0,0,0.2)',
-                                        transition: 'var(--transition)',
-                                        fontWeight: 500,
-                                    }}
-                                >
-                  <span
-                      style={{
-                          display: 'inline-block',
-                          width: '10px',
-                          height: '10px',
-                          borderRadius: '50%',
-                          backgroundColor: style.color,
-                          marginRight: '8px',
-                          verticalAlign: 'middle',
-                      }}
-                  />
-                                    {route}
-                                </Link>
-                            </li>
-                        );
-                    })}
-            </ul>
-        </div>
+        <ul className="component-list fade-in">
+            {Object.keys(modules)
+                .map((file) => file.replace('../components/', '').replace('.tsx', ''))
+                .sort()
+                .map((route) => {
+                    const category = route.split('/')[0] as keyof typeof categoryColors;
+                    const style = categoryColors[category] ?? {
+                        color: '#333',
+                        bg: 'var(--glass-bg)',
+                        border: 'var(--glass-border)',
+                    };
+
+                    return (
+                        <li key={route}>
+                            <Link
+                                to={route}
+                                style={{
+                                    display: 'block',
+                                    backgroundColor: style.bg,
+                                    color: style.color,
+                                    border: `1px solid ${style.border}`,
+                                    borderRadius: 'var(--glass-radius)',
+                                    padding: '12px 16px',
+                                    textDecoration: 'none',
+                                    boxShadow: 'var(--glass-shadow)',
+                                    transition: 'var(--transition)',
+                                    fontWeight: 500,
+                                }}
+                            >
+                <span
+                    style={{
+                        display: 'inline-block',
+                        width: '10px',
+                        height: '10px',
+                        borderRadius: '50%',
+                        backgroundColor: style.color,
+                        marginRight: '8px',
+                        verticalAlign: 'middle',
+                    }}
+                />
+                                {route}
+                            </Link>
+                        </li>
+                    );
+                })}
+        </ul>
     );
 }

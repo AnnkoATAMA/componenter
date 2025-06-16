@@ -9,8 +9,9 @@ type Props = {
 
 export default function ComponentRenderer({ componentKey, modules, props, children }: Props) {
     const LazyComponent = React.lazy(modules[componentKey] as any);
+
     return (
-        <div style={{ backgroundColor: 'var(--color-surface)', padding: '24px', borderRadius: 'var(--radius)' }}>
+        <div className="glass-card" style={{ padding: '24px' }}>
             <Suspense fallback={<div>Loading...</div>}>
                 <LazyComponent {...props}>{children}</LazyComponent>
             </Suspense>

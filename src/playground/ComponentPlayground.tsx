@@ -45,7 +45,13 @@ export default function ComponentPlayground() {
             <ComponentRenderer
                 componentKey={matchKey}
                 modules={modules}
-                props={{ style: { color: previewColor, fontSize: `${previewFontSize}px` }, ...sampleProps }}
+                props={{
+                    style: {
+                        color: previewColor,
+                        fontSize: `${previewFontSize}px`,
+                    },
+                    ...sampleProps,
+                }}
                 children={previewText}
             />
         </div>

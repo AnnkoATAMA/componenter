@@ -1,31 +1,30 @@
 import React from 'react';
-import '../../styles/atoms/Button.module.css';
+import styles from '../../styles/atoms/button.module.css';
 
-type ButtonProps = {
+type Props = {
     children: React.ReactNode;
     onClick?: () => void;
-    disabled?: boolean;
+    type?: 'button' | 'submit' | 'reset';
     className?: string;
+    disabled?: boolean;
     style?: React.CSSProperties;
 };
 
 export default function Button({
    children,
    onClick,
-   disabled = false,
+   type = 'button',
    className = '',
+   disabled = false,
    style,
-}: ButtonProps) {
+}: Props) {
     return (
         <button
+            type={type}
             onClick={onClick}
             disabled={disabled}
-            className={`
-                button 
-                ${disabled ? 'button-disabled' : 'button-enabled'} 
-                ${className}
-            `}
-            style={style}
+            className={`${styles.button} ${disabled ? styles.disabled : ''} ${className}`}
+            style={style} // ← ここで外部から渡された色やフォントサイズを反映
         >
             {children}
         </button>
